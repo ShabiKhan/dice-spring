@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+ 	http://www.springframework.org/schema/context
+ 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+ 
+    <context:component-scan base-package="com.shabi.controller" />
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	   	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+        <!--property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" /-->
+    </bean>
+    
+    <bean id="searchJobDaoBean" class="com.shabi.dao.SearchJobDAO">
+	   	<!--property name="prefix" value="/WEB-INF/jsp/" /-->
+    </bean>
+    <bean id="searchJobController" class="com.shabi.controller.SearchJobController">
+	   	<property name="searchJobDao">
+	   		<ref bean="searchJobDaoBean" />
+	   	</property>
+    </bean>        
+    
+    <bean id="userDaoBean" class="com.shabi.dao.UserDAO">
+	   	<!--property name="prefix" value="/WEB-INF/jsp/" /-->
+    </bean>
+    <bean id="loginController" class="com.shabi.controller.LoginController">
+	   	<property name="userDao">
+	   		<ref bean="userDaoBean" />
+	   	</property>
+    </bean>    
+    
+    <bean id="registerUserRequestDaoBean" class="com.shabi.dao.RegisterUserRequestDAO">
+	   	<!--property name="prefix" value="/WEB-INF/jsp/" /-->
+    </bean>
+    <bean id="registerUserController" class="com.shabi.controller.RegisterUserController">
+	   	<property name="registerUserRequestDao">
+	   		<ref bean="registerUserRequestDaoBean" />
+	   	</property>
+    </bean>     
+</beans>
