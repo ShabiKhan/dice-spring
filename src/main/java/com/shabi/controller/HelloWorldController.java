@@ -14,3 +14,6 @@ public class HelloWorldController {
 		return new ModelAndView("hello2", "message", message);
 	}
 }
+/*
+ * adding some comments 
+ */

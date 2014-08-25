@@ -12,7 +12,6 @@ import com.shabi.forms.ContactsDTO;
 @Controller
 @SessionAttributes
 public class ContactController {
-	
 
     @RequestMapping("/addContacts.page")// this is action name as in struts
     public ModelAndView addContactPage() {
@@ -31,3 +30,6 @@ public class ContactController {
     }
  
 }
+/*
+ * adding some comments 
+ */
